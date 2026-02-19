@@ -1,7 +1,7 @@
 {
-  "buildCommand": "ng build --configuration production",
-  "outputDirectory": "dist/devbootcamp",
   "framework": "angular",
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist/devbootcamp",
   "installCommand": "npm install",
   "rewrites": [
     {
