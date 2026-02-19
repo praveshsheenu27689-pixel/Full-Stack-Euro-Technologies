@@ -18,6 +18,7 @@ import { PlacementComponent } from './components/placement/placement.component';
 import { PortfolioComponent } from './components/portfolio/portfolio.component';
 import { TestimonialsComponent } from './components/testimonials/testimonials.component';
 import { ContactComponent } from './components/contact/contact.component';
+import { AuthModalComponent } from './components/auth-modal/auth-modal.component';
 
 // Directives
 import { ScrollAnimationDirective } from './directives/scroll-animation.directive';
@@ -36,6 +37,7 @@ import { LazyLoadDirective } from './directives/lazy-load.directive';
     PortfolioComponent,
     TestimonialsComponent,
     ContactComponent,
+    AuthModalComponent,
     ScrollAnimationDirective,
     LazyLoadDirective
   ],
