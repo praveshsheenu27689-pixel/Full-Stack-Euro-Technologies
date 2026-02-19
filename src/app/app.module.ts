@@ -19,6 +19,10 @@ import { PortfolioComponent } from './components/portfolio/portfolio.component';
 import { TestimonialsComponent } from './components/testimonials/testimonials.component';
 import { ContactComponent } from './components/contact/contact.component';
 
+// Directives
+import { ScrollAnimationDirective } from './directives/scroll-animation.directive';
+import { LazyLoadDirective } from './directives/lazy-load.directive';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,7 +35,9 @@ import { ContactComponent } from './components/contact/contact.component';
     PlacementComponent,
     PortfolioComponent,
     TestimonialsComponent,
-    ContactComponent
+    ContactComponent,
+    ScrollAnimationDirective,
+    LazyLoadDirective
   ],
   imports: [
     BrowserModule,

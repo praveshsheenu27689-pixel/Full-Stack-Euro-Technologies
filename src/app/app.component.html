@@ -1,6 +1,55 @@
+<!-- Toast Notifications -->
+<div class="toast-container" *ngIf="errorMessage">
+  <div class="toast" [class]="errorMessage.type">
+    <div class="toast-icon">
+      <i class="fas fa-exclamation-circle" *ngIf="errorMessage.type === 'error'"></i>
+      <i class="fas fa-check-circle" *ngIf="errorMessage.type === 'success'"></i>
+      <i class="fas fa-exclamation-triangle" *ngIf="errorMessage.type === 'warning'"></i>
+      <i class="fas fa-info-circle" *ngIf="errorMessage.type === 'info'"></i>
+    </div>
+    <div class="toast-content">
+      <p class="toast-message">{{ errorMessage.message }}</p>
+    </div>
+    <button class="toast-close" (click)="closeToast()">
+      <i class="fas fa-times"></i>
+    </button>
+  </div>
+</div>
+
+<!-- Loading Spinner -->
+<div class="loading-spinner" [class.hide]="!isLoading">
+  <div class="spinner-content">
+    <div class="spinner-logo">
+      <i class="fas fa-code"></i>
+    </div>
+    <div class="spinner"></div>
+    <p class="spinner-text">Loading...</p>
+  </div>
+</div>
+
+<!-- Loading Bar -->
+<div class="loading-bar" [class.active]="isLoading"></div>
+
 <app-header></app-header>
-<router-outlet></router-outlet>
+<div class="page-transition">
+  <router-outlet></router-outlet>
+</div>
 <app-footer></app-footer>
+
+<!-- Dark Mode Toggle -->
+<button class="dark-mode-toggle" (click)="toggleDarkMode()">
+  <i class="fas" [class.fa-moon]="!isDarkMode" [class.fa-sun]="isDarkMode"></i>
+</button>
+
+<!-- WhatsApp Button -->
+<a href="https://wa.me/919876543210?text=Hi, I want to know more about your courses" 
+   target="_blank" 
+   class="whatsapp-float">
+  <i class="fab fa-whatsapp"></i>
+  <span class="whatsapp-tooltip">Chat with us!</span>
+</a>
+
+<!-- Back to Top Button -->
 <button class="back-to-top" id="backToTop" (click)="scrollToTop()">
   <i class="fas fa-arrow-up"></i>
 </button>

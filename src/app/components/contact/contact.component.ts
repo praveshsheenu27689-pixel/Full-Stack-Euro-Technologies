@@ -51,8 +51,25 @@ export class ContactComponent implements OnInit {
   onSubmit() {
     if (this.contactForm.valid) {
       console.log(this.contactForm.value);
-      alert('Thank you for your message! We will get back to you soon.');
-      this.contactForm.reset();
+      // Simulate API call
+      setTimeout(() => {
+        this.contactForm.reset();
+        // Show success message
+        if (typeof window !== 'undefined') {
+          const event = new CustomEvent('showToast', { 
+            detail: { message: 'Thank you! We will get back to you soon.', type: 'success' } 
+          });
+          window.dispatchEvent(event);
+        }
+      }, 500);
+    } else {
+      // Show error message
+      if (typeof window !== 'undefined') {
+        const event = new CustomEvent('showToast', { 
+          detail: { message: 'Please fill in all required fields correctly.', type: 'error' } 
+        });
+        window.dispatchEvent(event);
+      }
     }
   }
 

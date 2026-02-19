@@ -1,6 +1,6 @@
 <section class="hero">
   <div class="container">
-    <div class="hero-content">
+    <div class="hero-content fade-in" appScrollAnimation>
       <h1>Become a Certified Full Stack Developer</h1>
       <p>Transform Your Career with Industry-Ready Skills</p>
       <div class="hero-buttons">
@@ -8,7 +8,7 @@
         <button class="btn btn-secondary" routerLink="/training">View Courses</button>
       </div>
     </div>
-    <div class="hero-image">
+    <div class="hero-image slide-right" appScrollAnimation>
       <i class="fas fa-laptop-code"></i>
     </div>
   </div>
@@ -16,7 +16,7 @@
 
 <section class="stats">
   <div class="container">
-    <div class="stat-box" *ngFor="let stat of stats">
+    <div class="stat-box zoom-in" appScrollAnimation *ngFor="let stat of stats">
       <i [class]="stat.icon"></i>
       <h3>{{ stat.value }}{{ stat.suffix }}</h3>
       <p>{{ stat.label }}</p>
@@ -26,19 +26,19 @@
 
 <section class="why-choose">
   <div class="container">
-    <h2 class="section-title">Why Choose Our Bootcamp?</h2>
+    <h2 class="section-title fade-in" appScrollAnimation>Why Choose Our Bootcamp?</h2>
     <div class="cards">
-      <div class="card">
+      <div class="card slide-up" appScrollAnimation>
         <i class="fas fa-chalkboard-teacher"></i>
         <h3>Industry Expert Instructors</h3>
         <p>Learn from professionals with 10+ years of experience in top tech companies</p>
       </div>
-      <div class="card">
+      <div class="card slide-up" appScrollAnimation>
         <i class="fas fa-project-diagram"></i>
         <h3>Live Projects & Internships</h3>
         <p>Work on real-world projects and gain hands-on experience during the course</p>
       </div>
-      <div class="card">
+      <div class="card slide-up" appScrollAnimation>
         <i class="fas fa-user-tie"></i>
         <h3>100% Placement Assistance</h3>
         <p>Dedicated placement cell with interview preparation and job guarantee</p>
@@ -49,9 +49,9 @@
 
 <section class="featured-courses">
   <div class="container">
-    <h2 class="section-title">Featured Courses</h2>
+    <h2 class="section-title fade-in" appScrollAnimation>Featured Courses</h2>
     <div class="course-grid">
-      <div class="course-card" *ngFor="let course of featuredCourses">
+      <div class="course-card slide-up" appScrollAnimation appLazyLoad *ngFor="let course of featuredCourses">
         <div class="course-image">
           <i [class]="course.icon"></i>
         </div>
@@ -78,8 +78,8 @@
 
 <section class="cta-section">
   <div class="container">
-    <h2>Start Your Journey Today</h2>
-    <div class="cta-buttons">
+    <h2 class="fade-in" appScrollAnimation>Start Your Journey Today</h2>
+    <div class="cta-buttons zoom-in" appScrollAnimation>
       <button class="btn btn-light"><i class="fas fa-download"></i> Download Brochure</button>
       <button class="btn btn-primary" routerLink="/contact"><i class="fas fa-calendar"></i> Book Free Demo</button>
     </div>

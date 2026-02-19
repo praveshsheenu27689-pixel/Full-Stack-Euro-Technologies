@@ -32,7 +32,7 @@
 <section class="courses">
   <div class="container">
     <div class="course-grid">
-      <div class="course-card" *ngFor="let course of filteredCourses; let i = index">
+      <div class="course-card" appLazyLoad *ngFor="let course of filteredCourses; let i = index">
         <div class="course-image">
           <i [class]="course.icon"></i>
         </div>

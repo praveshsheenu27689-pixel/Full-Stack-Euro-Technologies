@@ -11,14 +11,14 @@ import { TestimonialsComponent } from './components/testimonials/testimonials.co
 import { ContactComponent } from './components/contact/contact.component';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
-  { path: 'about', component: AboutComponent },
-  { path: 'services', component: ServicesComponent },
-  { path: 'training', component: TrainingComponent },
-  { path: 'placement', component: PlacementComponent },
-  { path: 'portfolio', component: PortfolioComponent },
-  { path: 'testimonials', component: TestimonialsComponent },
-  { path: 'contact', component: ContactComponent },
+  { path: '', component: HomeComponent, data: { animation: 'HomePage' } },
+  { path: 'about', component: AboutComponent, data: { animation: 'AboutPage' } },
+  { path: 'services', component: ServicesComponent, data: { animation: 'ServicesPage' } },
+  { path: 'training', component: TrainingComponent, data: { animation: 'TrainingPage' } },
+  { path: 'placement', component: PlacementComponent, data: { animation: 'PlacementPage' } },
+  { path: 'portfolio', component: PortfolioComponent, data: { animation: 'PortfolioPage' } },
+  { path: 'testimonials', component: TestimonialsComponent, data: { animation: 'TestimonialsPage' } },
+  { path: 'contact', component: ContactComponent, data: { animation: 'ContactPage' } },
   { path: '**', redirectTo: '' }
 ];
 
