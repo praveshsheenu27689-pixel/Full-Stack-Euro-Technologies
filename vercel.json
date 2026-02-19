@@ -1,0 +1,11 @@
+{
+  "buildCommand": "npm install && ng build --configuration production",
+  "outputDirectory": "dist/devbootcamp",
+  "framework": "angular",
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
+}
