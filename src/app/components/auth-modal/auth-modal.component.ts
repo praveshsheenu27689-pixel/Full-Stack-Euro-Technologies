@@ -10,7 +10,7 @@ export class AuthModalComponent implements OnInit {
   isLogin = true;
 
   ngOnInit() {
-    const hasVisited = localStorage.getItem('hasVisited');
+    const hasVisited = sessionStorage.getItem('hasVisited');
     if (!hasVisited) {
       setTimeout(() => {
         this.showModal = true;
@@ -24,12 +24,12 @@ export class AuthModalComponent implements OnInit {
 
   closeModal() {
     this.showModal = false;
-    localStorage.setItem('hasVisited', 'true');
+    sessionStorage.setItem('hasVisited', 'true');
   }
 
   skipModal() {
     this.showModal = false;
-    localStorage.setItem('hasVisited', 'true');
+    sessionStorage.setItem('hasVisited', 'true');
   }
 
   onLogin(form: any) {
