@@ -12,19 +12,25 @@
         <nav class="navbar">
             <div class="container">
                 <div class="logo">
-                    <h2><i class="fas fa-code"></i> DevBootcamp</h2>
+                    <a href="../index.html"><h2><i class="fas fa-code"></i> DevBootcamp</h2></a>
                 </div>
+                <button class="theme-toggle" id="themeToggle">
+                    <i class="fas fa-moon"></i>
+                </button>
                 <ul class="nav-menu">
                     <li><a href="../index.html">Home</a></li>
                     <li><a href="about.html">About</a></li>
-                    <li><a href="services.html">Services</a></li>
-                    <li><a href="training.html">Training</a></li>
-                    <li><a href="placement.html" class="active">Placement</a></li>
-                    <li><a href="portfolio.html">Portfolio</a></li>
-                    <li><a href="testimonials.html">Testimonials</a></li>
+                    <li class="dropdown">
+                        <a href="services.html">Services</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="training.html">Training</a></li>
+                            <li><a href="placement.html" class="active">Placement</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="portfolio.html">Projects</a></li>
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
-                <button class="cta-btn">Enroll Now</button>
+                <button class="cta-btn" onclick="window.location.href='contact.html'">Enroll Now</button>
                 <div class="hamburger">
                     <span></span>
                     <span></span>
@@ -38,6 +44,16 @@
         <div class="container">
             <h1>Placement Assistance</h1>
             <p>Your Success is Our Priority</p>
+        </div>
+    </section>
+
+    <section class="placement-intro">
+        <div class="container">
+            <div class="intro-content">
+                <h2>Launch Your Dream Career with 100% Placement Support</h2>
+                <p>We don't just train you—we transform you into industry-ready professionals. Our dedicated placement cell works tirelessly to connect you with top companies, ensuring your skills meet real-world demands. From resume building to interview mastery, we're with you every step of the way until you land your dream job.</p>
+                <p>Join thousands of successful graduates who've kickstarted their tech careers with our proven placement process. Your success story starts here!</p>
+            </div>
         </div>
     </section>
 
@@ -63,21 +79,7 @@
         </div>
     </section>
 
-    <section class="hiring-partners">
-        <div class="container">
-            <h2 class="section-title">Our Hiring Partners</h2>
-            <div class="partners-grid">
-                <div class="partner-logo">TCS</div>
-                <div class="partner-logo">Infosys</div>
-                <div class="partner-logo">Wipro</div>
-                <div class="partner-logo">Accenture</div>
-                <div class="partner-logo">Cognizant</div>
-                <div class="partner-logo">HCL</div>
-                <div class="partner-logo">Tech Mahindra</div>
-                <div class="partner-logo">Capgemini</div>
-            </div>
-        </div>
-    </section>
+
 
     <section class="placement-process">
         <div class="container">

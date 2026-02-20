@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Portfolio - DevBootcamp</title>
+    <title>Student Projects - DevBootcamp</title>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -12,19 +12,25 @@
         <nav class="navbar">
             <div class="container">
                 <div class="logo">
-                    <h2><i class="fas fa-code"></i> DevBootcamp</h2>
+                    <a href="../index.html"><h2><i class="fas fa-code"></i> DevBootcamp</h2></a>
                 </div>
+                <button class="theme-toggle" id="themeToggle">
+                    <i class="fas fa-moon"></i>
+                </button>
                 <ul class="nav-menu">
                     <li><a href="../index.html">Home</a></li>
                     <li><a href="about.html">About</a></li>
-                    <li><a href="services.html">Services</a></li>
-                    <li><a href="training.html">Training</a></li>
-                    <li><a href="placement.html">Placement</a></li>
-                    <li><a href="portfolio.html" class="active">Portfolio</a></li>
-                    <li><a href="testimonials.html">Testimonials</a></li>
+                    <li class="dropdown">
+                        <a href="services.html">Services</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="training.html">Training</a></li>
+                            <li><a href="placement.html">Placement</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="portfolio.html" class="active">Projects</a></li>
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
-                <button class="cta-btn">Enroll Now</button>
+                <button class="cta-btn" onclick="window.location.href='contact.html'">Enroll Now</button>
                 <div class="hamburger">
                     <span></span>
                     <span></span>
@@ -69,6 +75,69 @@
                             <span>MongoDB</span>
                         </div>
                         <p class="project-author">By: Rahul Sharma</p>
+                        <div class="project-links">
+                            <a href="#" class="btn btn-secondary"><i class="fas fa-eye"></i> View Live</a>
+                            <a href="#" class="btn btn-primary"><i class="fab fa-github"></i> GitHub</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card" data-category="web">
+                    <div class="project-image">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>AI Chatbot Assistant</h3>
+                        <p>Intelligent chatbot powered by OpenAI GPT for customer support</p>
+                        <div class="project-tech">
+                            <span>Python</span>
+                            <span>FastAPI</span>
+                            <span>OpenAI</span>
+                            <span>React</span>
+                        </div>
+                        <p class="project-author">By: Arjun Mehta</p>
+                        <div class="project-links">
+                            <a href="#" class="btn btn-secondary"><i class="fas fa-eye"></i> View Live</a>
+                            <a href="#" class="btn btn-primary"><i class="fab fa-github"></i> GitHub</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card" data-category="saas">
+                    <div class="project-image">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>AI Content Generator</h3>
+                        <p>Generate blog posts, social media content using AI agents</p>
+                        <div class="project-tech">
+                            <span>Next.js</span>
+                            <span>LangChain</span>
+                            <span>Claude AI</span>
+                            <span>PostgreSQL</span>
+                        </div>
+                        <p class="project-author">By: Kavya Iyer</p>
+                        <div class="project-links">
+                            <a href="#" class="btn btn-secondary"><i class="fas fa-eye"></i> View Live</a>
+                            <a href="#" class="btn btn-primary"><i class="fab fa-github"></i> GitHub</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card" data-category="web">
+                    <div class="project-image">
+                        <i class="fas fa-code-branch"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>AI Code Review Tool</h3>
+                        <p>Automated code analysis and suggestions using AI agents</p>
+                        <div class="project-tech">
+                            <span>TypeScript</span>
+                            <span>Node.js</span>
+                            <span>GitHub API</span>
+                            <span>GPT-4</span>
+                        </div>
+                        <p class="project-author">By: Rohan Das</p>
                         <div class="project-links">
                             <a href="#" class="btn btn-secondary"><i class="fas fa-eye"></i> View Live</a>
                             <a href="#" class="btn btn-primary"><i class="fab fa-github"></i> GitHub</a>

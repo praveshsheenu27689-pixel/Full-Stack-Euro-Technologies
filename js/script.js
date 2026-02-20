@@ -15,6 +15,40 @@ if (hamburger) {
     });
 }
 
+// Dark Mode Toggle
+const themeToggle = document.getElementById('themeToggle');
+if (themeToggle) {
+    themeToggle.addEventListener('click', () => {
+        document.body.classList.toggle('dark-mode');
+        const icon = themeToggle.querySelector('i');
+        if (document.body.classList.contains('dark-mode')) {
+            icon.classList.remove('fa-moon');
+            icon.classList.add('fa-sun');
+        } else {
+            icon.classList.remove('fa-sun');
+            icon.classList.add('fa-moon');
+        }
+    });
+}
+
+// 3D Mouse Follow Effect for Hero Section
+const hero = document.querySelector('.hero');
+if (hero) {
+    hero.addEventListener('mousemove', (e) => {
+        const { clientX, clientY } = e;
+        const { offsetWidth, offsetHeight } = hero;
+        
+        const xPos = (clientX / offsetWidth - 0.5) * 20;
+        const yPos = (clientY / offsetHeight - 0.5) * 20;
+        
+        hero.style.transform = `perspective(1000px) rotateY(${xPos}deg) rotateX(${-yPos}deg)`;
+    });
+    
+    hero.addEventListener('mouseleave', () => {
+        hero.style.transform = 'perspective(1000px) rotateY(0deg) rotateX(0deg)';
+    });
+}
+
 // Counter Animation
 const counters = document.querySelectorAll('.counter');
 
@@ -154,11 +188,9 @@ if (contactForm) {
         const name = document.getElementById('name').value.trim();
         const email = document.getElementById('email').value.trim();
         const phone = document.getElementById('phone').value.trim();
-        const course = document.getElementById('course').value;
         const message = document.getElementById('message').value.trim();
 
-        // Basic validation
-        if (!name || !email || !phone || !course || !message) {
+        if (!name || !email || !phone || !message) {
             alert('Please fill in all fields');
             return;
         }
@@ -285,6 +317,34 @@ document.querySelectorAll('.video-thumbnail').forEach(thumbnail => {
         alert('Video player would open here with the testimonial video.');
     });
 });
+
+// Testimonial Slider
+let currentSlide = 0;
+const slides = document.querySelectorAll('.testimonial-slide');
+const dots = document.querySelectorAll('.dot');
+
+function showSlide(n) {
+    if (slides.length === 0) return;
+    
+    slides.forEach(slide => slide.classList.remove('active'));
+    dots.forEach(dot => dot.classList.remove('active'));
+    
+    currentSlide = (n + slides.length) % slides.length;
+    slides[currentSlide].classList.add('active');
+    if (dots[currentSlide]) dots[currentSlide].classList.add('active');
+}
+
+if (slides.length > 0) {
+    showSlide(0);
+    
+    dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => showSlide(index));
+    });
+    
+    setInterval(() => {
+        showSlide(currentSlide + 1);
+    }, 5000);
+}
 
 // Project View Live and GitHub Links
 document.querySelectorAll('.project-links a').forEach(link => {

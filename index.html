@@ -13,19 +13,25 @@
         <nav class="navbar">
             <div class="container">
                 <div class="logo">
-                    <h2><i class="fas fa-code"></i> DevBootcamp</h2>
+                    <a href="index.html"><h2><i class="fas fa-code"></i> DevBootcamp</h2></a>
                 </div>
+                <button class="theme-toggle" id="themeToggle">
+                    <i class="fas fa-moon"></i>
+                </button>
                 <ul class="nav-menu">
                     <li><a href="index.html" class="active">Home</a></li>
                     <li><a href="pages/about.html">About</a></li>
-                    <li><a href="pages/services.html">Services</a></li>
-                    <li><a href="pages/training.html">Training</a></li>
-                    <li><a href="pages/placement.html">Placement</a></li>
-                    <li><a href="pages/portfolio.html">Portfolio</a></li>
-                    <li><a href="pages/testimonials.html">Testimonials</a></li>
+                    <li class="dropdown">
+                        <a href="pages/services.html">Services</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="pages/training.html">Training</a></li>
+                            <li><a href="pages/placement.html">Placement</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="pages/portfolio.html">Projects</a></li>
                     <li><a href="pages/contact.html">Contact</a></li>
                 </ul>
-                <button class="cta-btn">Enroll Now</button>
+                <button class="cta-btn" onclick="window.location.href='pages/contact.html'">Enroll Now</button>
                 <div class="hamburger">
                     <span></span>
                     <span></span>
@@ -52,31 +58,7 @@
         </div>
     </section>
 
-    <!-- Stats Section -->
-    <section class="stats">
-        <div class="container">
-            <div class="stat-box">
-                <i class="fas fa-users"></i>
-                <h3 class="counter" data-target="5000">0</h3>
-                <p>Students Trained</p>
-            </div>
-            <div class="stat-box">
-                <i class="fas fa-briefcase"></i>
-                <h3 class="counter" data-target="95">0</h3>
-                <p>Placement Rate</p>
-            </div>
-            <div class="stat-box">
-                <i class="fas fa-building"></i>
-                <h3 class="counter" data-target="100">0</h3>
-                <p>Partner Companies</p>
-            </div>
-            <div class="stat-box">
-                <i class="fas fa-star"></i>
-                <h3>4.8/5</h3>
-                <p>Average Rating</p>
-            </div>
-        </div>
-    </section>
+
 
     <!-- Why Choose Us -->
     <section class="why-choose">
@@ -98,6 +80,71 @@
                     <h3>100% Placement Assistance</h3>
                     <p>Dedicated placement cell with interview preparation and job guarantee</p>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-home">
+        <div class="container">
+            <h2 class="section-title">What Our Students Say</h2>
+            <div class="testimonial-slider">
+                <div class="testimonial-slide">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p>"Best bootcamp for full stack development. Got placed in 3 months after completion. The instructors are highly experienced and the curriculum is industry-aligned!"</p>
+                    <div class="testimonial-author">
+                        <i class="fas fa-user-circle"></i>
+                        <div>
+                            <h4>Rahul Verma</h4>
+                            <span>Full Stack Developer @ TCS</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-slide">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p>"Excellent instructors and hands-on projects. The placement support was outstanding. They helped me prepare for interviews and I got multiple job offers!"</p>
+                    <div class="testimonial-author">
+                        <i class="fas fa-user-circle"></i>
+                        <div>
+                            <h4>Priya Singh</h4>
+                            <span>Software Engineer @ Infosys</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-slide">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p>"Changed my career completely. From non-tech to tech in 6 months. The support from mentors was amazing. They were always available to clear doubts!"</p>
+                    <div class="testimonial-author">
+                        <i class="fas fa-user-circle"></i>
+                        <div>
+                            <h4>Amit Kumar</h4>
+                            <span>Frontend Developer @ Wipro</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slider-dots">
+                <span class="dot active" data-slide="0"></span>
+                <span class="dot" data-slide="1"></span>
+                <span class="dot" data-slide="2"></span>
             </div>
         </div>
     </section>

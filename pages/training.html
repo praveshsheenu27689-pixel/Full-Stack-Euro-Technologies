@@ -12,19 +12,25 @@
         <nav class="navbar">
             <div class="container">
                 <div class="logo">
-                    <h2><i class="fas fa-code"></i> DevBootcamp</h2>
+                    <a href="../index.html"><h2><i class="fas fa-code"></i> DevBootcamp</h2></a>
                 </div>
+                <button class="theme-toggle" id="themeToggle">
+                    <i class="fas fa-moon"></i>
+                </button>
                 <ul class="nav-menu">
                     <li><a href="../index.html">Home</a></li>
                     <li><a href="about.html">About</a></li>
-                    <li><a href="services.html">Services</a></li>
-                    <li><a href="training.html" class="active">Training</a></li>
-                    <li><a href="placement.html">Placement</a></li>
-                    <li><a href="portfolio.html">Portfolio</a></li>
-                    <li><a href="testimonials.html">Testimonials</a></li>
+                    <li class="dropdown">
+                        <a href="services.html">Services</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="training.html" class="active">Training</a></li>
+                            <li><a href="placement.html">Placement</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="portfolio.html">Projects</a></li>
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
-                <button class="cta-btn">Enroll Now</button>
+                <button class="cta-btn" onclick="window.location.href='contact.html'">Enroll Now</button>
                 <div class="hamburger">
                     <span></span>
                     <span></span>
@@ -65,14 +71,6 @@
                             <span><i class="fas fa-clock"></i> 6 Months</span>
                             <span><i class="fas fa-signal"></i> Beginner to Advanced</span>
                         </div>
-                        <div class="course-rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <span>(4.8) | 2000+ Students</span>
-                        </div>
                         <p>Master HTML, CSS, JavaScript, React, Node.js, MongoDB, and deployment</p>
                         <div class="course-price">₹49,999</div>
                         <div class="course-buttons">
@@ -91,14 +89,6 @@
                         <div class="course-meta">
                             <span><i class="fas fa-clock"></i> 4 Months</span>
                             <span><i class="fas fa-signal"></i> Intermediate</span>
-                        </div>
-                        <div class="course-rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <span>(4.7) | 1500+ Students</span>
                         </div>
                         <p>Specialize in MongoDB, Express.js, React, and Node.js stack</p>
                         <div class="course-price">₹39,999</div>
@@ -119,14 +109,6 @@
                             <span><i class="fas fa-clock"></i> 3 Months</span>
                             <span><i class="fas fa-signal"></i> Beginner</span>
                         </div>
-                        <div class="course-rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <span>(4.9) | 1800+ Students</span>
-                        </div>
                         <p>Learn HTML, CSS, JavaScript, React, and responsive design</p>
                         <div class="course-price">₹29,999</div>
                         <div class="course-buttons">
@@ -145,14 +127,6 @@
                         <div class="course-meta">
                             <span><i class="fas fa-clock"></i> 4 Months</span>
                             <span><i class="fas fa-signal"></i> Intermediate</span>
-                        </div>
-                        <div class="course-rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <span>(4.6) | 1200+ Students</span>
                         </div>
                         <p>Master Node.js, Express, databases, APIs, and authentication</p>
                         <div class="course-price">₹34,999</div>
@@ -173,14 +147,6 @@
                             <span><i class="fas fa-clock"></i> 3 Months</span>
                             <span><i class="fas fa-signal"></i> Advanced</span>
                         </div>
-                        <div class="course-rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <span>(4.8) | 900+ Students</span>
-                        </div>
                         <p>Learn Docker, Kubernetes, AWS, CI/CD, and deployment strategies</p>
                         <div class="course-price">₹44,999</div>
                         <div class="course-buttons">
@@ -199,14 +165,6 @@
                         <div class="course-meta">
                             <span><i class="fas fa-clock"></i> 4 Months</span>
                             <span><i class="fas fa-signal"></i> Intermediate</span>
-                        </div>
-                        <div class="course-rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <span>(4.7) | 1100+ Students</span>
                         </div>
                         <p>Build cross-platform apps with React Native and Flutter</p>
                         <div class="course-price">₹39,999</div>
