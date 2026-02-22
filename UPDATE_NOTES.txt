@@ -1,0 +1,8 @@
+#!/bin/bash
+# Script to update all pages with EuroTechnologies branding
+# This is a reference file showing what needs to be updated
+
+# All pages need:
+# 1. Logo changed from DevBootcamp to EuroTechnologies
+# 2. Footer courses linked to training.html with IDs
+# 3. Footer branding updated to EuroTechnologies

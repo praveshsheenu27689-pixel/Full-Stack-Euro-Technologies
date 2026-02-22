@@ -7,47 +7,49 @@ if (hamburger) {
         navMenu.classList.toggle('active');
     });
 
-    // Close menu when clicking on a link
+    // Close menu when clicking on a link (except dropdown parent)
     document.querySelectorAll('.nav-menu a').forEach(link => {
-        link.addEventListener('click', () => {
-            navMenu.classList.remove('active');
+        link.addEventListener('click', (e) => {
+            const parent = link.parentElement;
+            if (!parent.classList.contains('dropdown')) {
+                navMenu.classList.remove('active');
+            } else {
+                // If it's the Services link itself, allow navigation on second click
+                const dropdown = parent;
+                if (dropdown.classList.contains('active')) {
+                    // Second click - navigate to services page
+                    navMenu.classList.remove('active');
+                    dropdown.classList.remove('active');
+                }
+            }
         });
     });
-}
-
-// Dark Mode Toggle
-const themeToggle = document.getElementById('themeToggle');
-if (themeToggle) {
-    themeToggle.addEventListener('click', () => {
-        document.body.classList.toggle('dark-mode');
-        const icon = themeToggle.querySelector('i');
-        if (document.body.classList.contains('dark-mode')) {
-            icon.classList.remove('fa-moon');
-            icon.classList.add('fa-sun');
-        } else {
-            icon.classList.remove('fa-sun');
-            icon.classList.add('fa-moon');
-        }
-    });
-}
-
-// 3D Mouse Follow Effect for Hero Section
-const hero = document.querySelector('.hero');
-if (hero) {
-    hero.addEventListener('mousemove', (e) => {
-        const { clientX, clientY } = e;
-        const { offsetWidth, offsetHeight } = hero;
-        
-        const xPos = (clientX / offsetWidth - 0.5) * 20;
-        const yPos = (clientY / offsetHeight - 0.5) * 20;
-        
-        hero.style.transform = `perspective(1000px) rotateY(${xPos}deg) rotateX(${-yPos}deg)`;
-    });
     
-    hero.addEventListener('mouseleave', () => {
-        hero.style.transform = 'perspective(1000px) rotateY(0deg) rotateX(0deg)';
-    });
+    // Handle dropdown in mobile
+    const dropdown = document.querySelector('.dropdown');
+    if (dropdown) {
+        const dropdownLink = dropdown.querySelector('a');
+        dropdownLink.addEventListener('click', (e) => {
+            if (window.innerWidth <= 768) {
+                if (!dropdown.classList.contains('active')) {
+                    e.preventDefault();
+                    dropdown.classList.toggle('active');
+                }
+            }
+        });
+        
+        // Close menu when dropdown item is clicked
+        dropdown.querySelectorAll('.dropdown-menu a').forEach(item => {
+            item.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                dropdown.classList.remove('active');
+            });
+        });
+    }
 }
+
+// 3D Mouse Follow Effect for Hero Section - DISABLED
+// Hero section hover effects are now disabled
 
 // Counter Animation
 const counters = document.querySelectorAll('.counter');
@@ -229,6 +231,19 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
+// Smooth scroll for footer course links
+if (window.location.pathname.includes('training.html') && window.location.hash) {
+    setTimeout(() => {
+        const target = document.querySelector(window.location.hash);
+        if (target) {
+            target.scrollIntoView({
+                behavior: 'smooth',
+                block: 'center'
+            });
+        }
+    }, 100);
+}
+
 // Sticky Header on Scroll
 const header = document.querySelector('.header');
 let lastScroll = 0;
@@ -245,15 +260,16 @@ window.addEventListener('scroll', () => {
     lastScroll = currentScroll;
 });
 
-// Add animation on scroll for cards
-const animateOnScroll = () => {
-    const elements = document.querySelectorAll('.card, .service-card, .course-card, .project-card, .testimonial-card');
+// Scroll Animations
+const observeElements = () => {
+    const elements = document.querySelectorAll('.card, .course-card, .service-card, .project-card, .testimonial-card, .review-card, .video-card, .stat-box, .mv-card, .team-card, .cta-section, .story-card, .process-step, .stat-card');
     
     const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
+        entries.forEach((entry, index) => {
             if (entry.isIntersecting) {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
+                setTimeout(() => {
+                    entry.target.classList.add('visible');
+                }, index * 100);
             }
         });
     }, {
@@ -261,16 +277,42 @@ const animateOnScroll = () => {
     });
 
     elements.forEach(element => {
-        element.style.opacity = '0';
-        element.style.transform = 'translateY(20px)';
-        element.style.transition = 'all 0.6s ease';
         observer.observe(element);
     });
 };
 
 // Initialize animations when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
-    animateOnScroll();
+    observeElements();
+});
+
+// Smooth scroll reveal for all sections
+const revealOnScroll = () => {
+    const sections = document.querySelectorAll('section');
+    
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }
+        });
+    }, {
+        threshold: 0.05,
+        rootMargin: '0px 0px -50px 0px'
+    });
+
+    sections.forEach(section => {
+        section.style.opacity = '0';
+        section.style.transform = 'translateY(30px)';
+        section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        revealObserver.observe(section);
+    });
+};
+
+// Initialize reveal on scroll
+window.addEventListener('load', () => {
+    revealOnScroll();
 });
 
 // CTA Button Actions

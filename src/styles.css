@@ -1,3 +1,71 @@
+/* Universal Box Hover Effects */
+.card,
+.service-card,
+.course-card,
+.testimonial-slide,
+.stat-box,
+.mv-card,
+.team-card,
+.story-card,
+.process-step,
+.stat-card,
+.project-card,
+.testimonial-card,
+.review-card,
+.video-card,
+.info-item,
+.faq-item,
+.mode-card,
+.partner-logo {
+    transition: all 0.3s ease;
+}
+
+.card:hover,
+.service-card:hover,
+.course-card:hover,
+.testimonial-slide:hover,
+.stat-box:hover,
+.mv-card:hover,
+.team-card:hover,
+.story-card:hover,
+.process-step:hover,
+.stat-card:hover,
+.project-card:hover,
+.testimonial-card:hover,
+.review-card:hover,
+.video-card:hover,
+.info-item:hover,
+.faq-item:hover,
+.mode-card:hover,
+.partner-logo:hover {
+    background: rgba(16, 185, 129, 0.05) !important;
+    border: 2px solid rgba(16, 185, 129, 0.3) !important;
+    transform: translateY(-5px) !important;
+    box-shadow: 0 10px 25px rgba(16, 185, 129, 0.2) !important;
+}
+
+body.dark-mode .card:hover,
+body.dark-mode .service-card:hover,
+body.dark-mode .course-card:hover,
+body.dark-mode .testimonial-slide:hover,
+body.dark-mode .stat-box:hover,
+body.dark-mode .mv-card:hover,
+body.dark-mode .team-card:hover,
+body.dark-mode .story-card:hover,
+body.dark-mode .process-step:hover,
+body.dark-mode .stat-card:hover,
+body.dark-mode .project-card:hover,
+body.dark-mode .testimonial-card:hover,
+body.dark-mode .review-card:hover,
+body.dark-mode .video-card:hover,
+body.dark-mode .info-item:hover,
+body.dark-mode .faq-item:hover,
+body.dark-mode .mode-card:hover,
+body.dark-mode .partner-logo:hover {
+    background: rgba(16, 185, 129, 0.1) !important;
+    border: 2px solid rgba(16, 185, 129, 0.4) !important;
+}
+
 /* Reset & Base Styles */
 * {
     margin: 0;
