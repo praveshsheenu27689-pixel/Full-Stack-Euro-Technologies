@@ -1,0 +1,47 @@
+version: '3.8'
+
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: bootcamp-mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root123
+      MYSQL_DATABASE: bootcamp_db
+      MYSQL_USER: system
+      MYSQL_PASSWORD: pravesh123
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql-data:/var/lib/mysql
+    networks:
+      - bootcamp-network
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  app:
+    build: .
+    container_name: bootcamp-api
+    depends_on:
+      mysql:
+        condition: service_healthy
+    environment:
+      SPRING_PROFILES_ACTIVE: prod
+      DATABASE_URL: jdbc:mysql://mysql:3306/bootcamp_db?createDatabaseIfNotExist=true&useSSL=false&serverTimezone=UTC
+      DATABASE_USERNAME: system
+      DATABASE_PASSWORD: pravesh123
+      JWT_SECRET: 404E635266556A586E3272357538782F413F4428472B4B6250645367566B5970
+    ports:
+      - "8080:8080"
+    networks:
+      - bootcamp-network
+    restart: unless-stopped
+
+volumes:
+  mysql-data:
+
+networks:
+  bootcamp-network:
+    driver: bridge
