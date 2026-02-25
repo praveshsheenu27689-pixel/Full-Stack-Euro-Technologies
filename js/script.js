@@ -180,41 +180,11 @@ faqItems.forEach(item => {
     });
 });
 
-// Contact Form Validation
+// Contact Form Validation with API Integration
 const contactForm = document.getElementById('contactForm');
 
 if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-
-        const name = document.getElementById('name').value.trim();
-        const email = document.getElementById('email').value.trim();
-        const phone = document.getElementById('phone').value.trim();
-        const message = document.getElementById('message').value.trim();
-
-        if (!name || !email || !phone || !message) {
-            alert('Please fill in all fields');
-            return;
-        }
-
-        // Email validation
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(email)) {
-            alert('Please enter a valid email address');
-            return;
-        }
-
-        // Phone validation
-        const phoneRegex = /^[0-9]{10}$/;
-        if (!phoneRegex.test(phone)) {
-            alert('Please enter a valid 10-digit phone number');
-            return;
-        }
-
-        // If validation passes
-        alert('Thank you for your message! We will get back to you soon.');
-        contactForm.reset();
-    });
+    contactForm.addEventListener('submit', handleContactFormSubmit);
 }
 
 // Smooth Scroll for Navigation Links
@@ -398,3 +368,47 @@ document.querySelectorAll('.project-links a').forEach(link => {
 });
 
 console.log('DevBootcamp Website Loaded Successfully! 🚀');
+
+// Load courses from API on home page
+if (window.location.pathname.endsWith('index.html') || window.location.pathname === '/') {
+    // Load featured courses
+    fetchAllCourses(0, 3).then(result => {
+        if (result.success && result.courses) {
+            const courseGrid = document.querySelector('.featured-courses .course-grid');
+            if (courseGrid && result.courses.length > 0) {
+                courseGrid.innerHTML = '';
+                result.courses.forEach(course => {
+                    const courseCard = document.createElement('div');
+                    courseCard.className = 'course-card';
+                    courseCard.innerHTML = `
+                        <div class="course-image">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <div class="course-content">
+                            <h3>${course.title}</h3>
+                            <div class="course-meta">
+                                <span><i class="fas fa-clock"></i> ${course.duration || '6 Months'}</span>
+                                <span><i class="fas fa-signal"></i> ${course.level}</span>
+                            </div>
+                            <p>${course.description || 'Complete course description'}</p>
+                            <div class="course-buttons">
+                                <button class="btn btn-secondary" onclick="viewCourseDetails(${course.id})">View Details</button>
+                                <button class="btn btn-primary" onclick="enrollCourse(${course.id})">Enroll Now</button>
+                            </div>
+                        </div>
+                    `;
+                    courseGrid.appendChild(courseCard);
+                });
+            }
+        }
+    });
+}
+
+// Load all courses on training page
+if (window.location.pathname.includes('training.html')) {
+    fetchAllCourses(0, 20).then(result => {
+        if (result.success && result.courses) {
+            displayCourses(result.courses, 'coursesContainer');
+        }
+    });
+}

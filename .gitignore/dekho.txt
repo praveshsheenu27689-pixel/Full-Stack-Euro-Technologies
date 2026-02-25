@@ -1,0 +1,10 @@
+
+-Xms256m
+
+
+-Xmx2048m--illegal-access=permit
+
+
+--add-modules=ALL-SYSTEM
+
+-javaagent:C:\\sts-4.30.0\\lombok.jar
